@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ca.Cms.Domain.Entities
 {
-    public class AppointmentEntity
+    public class DoctorCommentEntity
     {
     }
 }
