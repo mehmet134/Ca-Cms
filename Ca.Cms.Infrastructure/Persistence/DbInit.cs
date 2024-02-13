@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +10,11 @@ namespace Ca.Cms.Infrastructure.Persistence
 {
     public static class DbInitExtensions
     {
-        public static async Task InitializeDb(this IServiceScope scope)
+        public static async Task InitializeDb(this IApplicationBuilder app)
         {
+            using var scope = app.ApplicationServices.CreateScope();
             var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-            context.Database.EnsureDeleted();
+           //context.Database.EnsureDeleted();
             context.Database.EnsureCreated();
         }
     }

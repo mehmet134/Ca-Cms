@@ -32,6 +32,6 @@ namespace Ca.Cms.Domain.Entities
         public int? NavbarId { get; set; }
 
 
-       // public NavbarEntity? Navbar { get; set; }
+        public NavbarEntity? Navbar { get; set; }
     }
 }

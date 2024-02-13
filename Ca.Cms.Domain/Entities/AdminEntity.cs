@@ -11,7 +11,6 @@ namespace Ca.Cms.Domain.Entities
 {
     public class AdminEntity : BaseEntity
     {
-        
         public string Name { get; set; } 
 
         public string Surname { get; set; } 

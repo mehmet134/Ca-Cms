@@ -14,6 +14,6 @@ namespace Ca.Cms.Domain.Entities
         public string Name { get; set; }
 
         public ICollection<DoctorEntity> Doctors { get; set; }
-        //public ICollection<DepartmentEntity> Departments { get; set; }
+        public ICollection<DepartmentEntity> Departments { get; set; }
     }
 }

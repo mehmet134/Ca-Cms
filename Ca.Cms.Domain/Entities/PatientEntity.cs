@@ -21,7 +21,7 @@ namespace Ca.Cms.Domain.Entities
 
         public string? Phone { get; set; }
 
-        //public ICollection<AppointmentEntity> Appointments { get; set; }
+        public ICollection<AppointmentEntity> Appointments { get; set; }
 
         public string? Address { get; set; }
         //public string ResimDosyaAdi { get; set; } // Resim dosya adını burada saklayabilirsiniz.

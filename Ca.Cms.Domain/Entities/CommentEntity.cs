@@ -16,6 +16,6 @@ namespace Ca.Cms.Domain.Entities
         public int BlogId { get; set; }
         public BlogEntity? Blog { get; set; }
 
-        //public PatientEntity? Patient { get; set; }
+        public PatientEntity? Patient { get; set; }
     }
 }

@@ -16,10 +16,10 @@ namespace Ca.Cms.Domain.Entities
         public int? PatientId { get; set; }
         public DateTime DateTime { get; set; }
 
-        //public DoctorCategoryEntity? Category { get; set; }
+        public DoctorCategoryEntity? Category { get; set; }
 
-        //public DoctorEntity? Doctor { get; set; }
+        public DoctorEntity? Doctor { get; set; }
 
-       // public PatientEntity? Patient { get; set; }
+        public PatientEntity? Patient { get; set; }
     }
 }

@@ -24,6 +24,7 @@ namespace Ca.Cms.Domain.Entities
 
         public string? Phone { get; set; }
 
+        public DoctorCategoryEntity? Category { get; set; }
         public List<AppointmentEntity>? Appointments { get; set; }
 
         public List<DoctorCommentEntity>? DoctorComments { get; set; }
