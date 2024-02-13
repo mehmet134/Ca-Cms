@@ -1,5 +1,4 @@
 ﻿using Ca.Cms.Application.Common.Interfaces;
-using Ca.Cms.Domain.Common.Interfaces;
 using Ca.Cms.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;

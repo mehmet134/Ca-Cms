@@ -1,5 +1,7 @@
 ﻿using Ca.Cms.Application.Common.Interfaces;
 using Ca.Cms.Infrastructure.Persistence;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -12,10 +14,13 @@ namespace Microsoft.Extensions.DependencyInjection;
 
 public static class DependencyInjection
 {
-    public static IServiceCollection AddInfrastructureServices(this IServiceCollection services)
+    public static IServiceCollection AddInfrastructureServices(this IServiceCollection services,IConfiguration configuration)
     {
-        services.AddDbContext<IApplicationDbContext, ApplicationDbContext>();
-
+        services.AddDbContext<ApplicationDbContext>(options =>
+        {
+            options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
+        });
+        services.AddScoped<IApplicationDbContext>(provider => provider.GetRequiredService<ApplicationDbContext>());
         return services;
     }
 }
