@@ -12,7 +12,7 @@ namespace Ca.Cms.Domain.Entities
     public class DoctorEntity : BaseEntity
     {
 
-        public int CategoryId { get; set; }
+        public int? CategoryId { get; set; }
 
         public string Name { get; set; }
 
@@ -30,20 +30,20 @@ namespace Ca.Cms.Domain.Entities
         public List<DoctorCommentEntity>? DoctorComments { get; set; }
 
         public string? Address { get; set; } = string.Empty;
-        public string? ResimDosyaAdi { get; set; }
+       // public string? ResimDosyaAdi { get; set; }
 
-        public string? ResimYolu
-        {
-            get
-            {
-                if (!string.IsNullOrEmpty(ResimDosyaAdi))
-                {
-                    return "/images/" + ResimDosyaAdi;
-                }
-                return null;
-            }
-        }
-        public string? Cv { get; set; } = string.Empty;
+        //public string? ResimYolu
+        //{
+        //    get
+        //    {
+        //        if (!string.IsNullOrEmpty(ResimDosyaAdi))
+        //        {
+        //            return "/images/" + ResimDosyaAdi;
+        //        }
+        //        return null;
+        //    }
+        //}
+       // public string? Cv { get; set; } = string.Empty;
 
 
         public int? NavbarId { get; set; }

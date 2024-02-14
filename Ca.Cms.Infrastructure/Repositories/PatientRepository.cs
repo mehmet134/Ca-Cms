@@ -2,7 +2,7 @@
 using Ca.Cms.Domain.Entities;
 using Ca.Cms.Domain.Repositories;
 using Ca.Cms.Infrastructure.Persistence;
-using Ca.Cms.Infrastructure.Persistence.Repositories;
+using Ca.Cms.Infrastructure.Persistence.Common;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;

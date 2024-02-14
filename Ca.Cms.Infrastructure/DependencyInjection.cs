@@ -1,6 +1,7 @@
 ﻿using Ca.Cms.Application.Common.Interfaces;
 using Ca.Cms.Domain.Repositories;
 using Ca.Cms.Infrastructure.Persistence;
+using Ca.Cms.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -22,7 +23,10 @@ public static class DependencyInjection
             options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
         });
         services.AddScoped<IApplicationDbContext>(provider => provider.GetRequiredService<ApplicationDbContext>());
-        services.AddScoped<IPatientRepository, IPatientRepository>();
+        services.AddScoped<IPatientRepository, PatientRepository>();
+        services.AddScoped<IDoctorRepository, DoctorRepository>();
+
+
         return services;
     }
 }

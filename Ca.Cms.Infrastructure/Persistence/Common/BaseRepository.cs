@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ca.Cms.Infrastructure.Persistence.Repositories
+namespace Ca.Cms.Infrastructure.Persistence.Common
 {
-    public class BaseRepository<TEntity , TKey> where TEntity : class
+    public class BaseRepository<TEntity, TKey> where TEntity : class
     {
         private readonly ApplicationDbContext _context;
         private readonly DbSet<TEntity> _table;
