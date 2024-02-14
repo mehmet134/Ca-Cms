@@ -1,4 +1,5 @@
 ﻿using Ca.Cms.Application.Common.Interfaces;
+using Ca.Cms.Domain.Common;
 using Ca.Cms.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -9,7 +10,8 @@ using System.Threading.Tasks;
 
 namespace Ca.Cms.Infrastructure.Persistence.Common
 {
-    public class BaseRepository<TEntity, TKey> where TEntity : class
+    public class BaseRepository<TEntity, TKey> :IRepository<TEntity , TKey>
+        where TEntity : class , IEntity<TKey>
     {
         private readonly ApplicationDbContext _context;
         private readonly DbSet<TEntity> _table;
