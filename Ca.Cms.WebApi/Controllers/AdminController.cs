@@ -9,7 +9,7 @@ namespace Ca.Cms.WebApi.Controllers
     [ApiController]
     public class AdminController : ControllerBase
     {
-        private readonly IRepository<AdminEntity> _repository;
+        private readonly IRepository<AdminEntity, int> _repository;
 
         public AdminController(IRepository<AdminEntity> repository)
         {
@@ -17,9 +17,17 @@ namespace Ca.Cms.WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task Get()
+        public async Task<IActionResult> Get()
         {
-            await _repository.GetAll();
+           var admins =  await _repository.GetAll();
+            return Ok(admins);
+            
+        }
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GeyByIdAdmin(int id)
+        {
+            var admin = await _repository.GetById(id);
+            return Ok(admin);
         }
     }
 }
