@@ -9,29 +9,29 @@ using Ca.Cms.Domain.Common;
 
 namespace Ca.Cms.Domain.Entities
 {
-    public class DepartmentEntity : BaseEntity
+    public class DepartmentBlogEntity : BaseEntity
     {
         public string Name { get; set; }
 
         public string Description { get; set; }
 
-        public string? ResimDosyaAdi { get; set; }
+        //public string? ResimDosyaAdi { get; set; }
 
-        public string? ResimYolu
-        {
-            get
-            {
-                if (!string.IsNullOrEmpty(ResimDosyaAdi))
-                {
-                    return "/images/" + ResimDosyaAdi; // wwwroot klasöründeki images altındaki dosyaya göre yol belirtilir.
-                }
-                return null;
-            }
-        }
+        //public string? ResimYolu
+        //{
+        //    get
+        //    {
+        //        if (!string.IsNullOrEmpty(ResimDosyaAdi))
+        //        {
+        //            return "/images/" + ResimDosyaAdi; // wwwroot klasöründeki images altındaki dosyaya göre yol belirtilir.
+        //        }
+        //        return null;
+        //    }
+        //}
 
-        public int? NavbarId { get; set; }
+        //public int NavbarId { get; set; }
 
 
-       // public NavbarEntity? Navbar { get; set; }
+        //public NavbarEntity? Navbar { get; set; }
     }
 }

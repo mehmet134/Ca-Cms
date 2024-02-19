@@ -1,6 +1,6 @@
 ﻿using Ca.Cms.Application.Common.Interfaces;
-using Ca.Cms.Domain.Common.Interfaces;
 using Ca.Cms.Domain.Entities;
+using Ca.Cms.Domain.Repositories;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -12,42 +12,36 @@ namespace Ca.Cms.Application.Common.Services
 {
     public class PatientService : IPatientService
     {
-        private readonly IApplicationDbContext _context;
+        private readonly IPatientRepository _repository;
 
-        public PatientService(IApplicationDbContext context)
+        public PatientService(IPatientRepository repository)
         {
-            _context = context;
+            _repository = repository;
         }
 
-        public async Task Create(PatientEntity patient)
+        public async Task CreatePatient(PatientEntity patient)
         {
-            _context.Patients.Add(patient);
-            await _context.SaveChangesAsync();
-            return;
+             await _repository.Create(patient);
         }
 
-        public async Task Delete(PatientEntity patient)
+        public async Task DeletePatient(PatientEntity patient)
         {
-            _context.Patients.Remove(patient);
-            await _context.SaveChangesAsync();
-            return;
+           await _repository.Delete(patient);
         }
 
-        public async Task<List<PatientEntity>> GetAll()
+        public async Task<List<PatientEntity>> GetAllPatients()
         {
-            return await _context.Patients.ToListAsync();
+           return await _repository.GetAll();
         }
 
-        public async Task<PatientEntity> GetById(int id)
+        public async Task<PatientEntity> GetPatientById(int id)
         {
-            return await _context.Patients.FindAsync(id);
+           return await _repository.GetById(id);
         }
 
-        public async Task Update(PatientEntity patient)
+        public async Task UpdatePatient(PatientEntity patient)
         {
-            _context.Patients.Update(patient);
-            await _context.SaveChangesAsync();
-            return;
+            await _repository.Update(patient);
         }
     }
 }

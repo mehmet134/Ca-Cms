@@ -11,7 +11,6 @@ namespace Ca.Cms.Domain.Entities
 {
     public class ContactEntity : BaseEntity
     {
-     
         public string Fullname { get; set; } 
         public string Topic { get; set; }
 

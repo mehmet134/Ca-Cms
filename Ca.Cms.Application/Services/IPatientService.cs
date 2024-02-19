@@ -9,10 +9,10 @@ namespace Ca.Cms.Application.Common.Services
 {
     public interface IPatientService
     {
-        Task<List<PatientEntity>> GetAll();
-        Task<PatientEntity> GetById(int id);
-        Task Create(PatientEntity patient);
-        Task Update(PatientEntity patient);
-        Task Delete(PatientEntity patient);
+        Task<List<PatientEntity>> GetAllPatients();
+        Task<PatientEntity> GetPatientById(int id);
+        Task CreatePatient(PatientEntity patient);
+        Task UpdatePatient(PatientEntity patient);
+        Task DeletePatient(PatientEntity patient);
     }
 }

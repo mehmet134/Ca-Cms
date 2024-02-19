@@ -1,10 +1,11 @@
+using Ca.Cms.Infrastructure.Persistence;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services
     .AddApplicationServices()
-    .AddInfrastructureServices()
+    .AddInfrastructureServices(builder.Configuration)
     .AddWebApiServices();
 var app = builder.Build();
 
@@ -13,6 +14,8 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+
+    await app.InitializeDb();
 }
 
 app.UseHttpsRedirection();

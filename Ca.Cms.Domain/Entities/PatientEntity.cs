@@ -19,11 +19,11 @@ namespace Ca.Cms.Domain.Entities
 
         public string Password { get; set; } 
 
-        public string? Phone { get; set; }
+        public string Phone { get; set; }
 
-        //public ICollection<AppointmentEntity> Appointments { get; set; }
+        public ICollection<AppointmentEntity> Appointments { get; set; }
 
-        public string? Address { get; set; }
+        public string Address { get; set; }
         //public string ResimDosyaAdi { get; set; } // Resim dosya adını burada saklayabilirsiniz.
 
         //public string ResimYolu
@@ -38,6 +38,6 @@ namespace Ca.Cms.Domain.Entities
         //    }
         //}
 
-        public List<PatientCommentEntity>? PatientComments { get; set; }
+        public List<PatientCommentEntity> PatientComments { get; set; }
     }
 }

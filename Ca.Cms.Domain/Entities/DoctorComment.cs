@@ -9,14 +9,13 @@ using System.Threading.Tasks;
 
 namespace Ca.Cms.Domain.Entities
 {
-    public class DoctorCommentEntity
+    public class DoctorCommentEntity : BaseEntity
     {
-
         public int DoctorId { get; set; }
         public string Title { get; set; }
 
         public string Description { get; set; }
 
-        public DoctorEntity? Doctor { get; set; }
+        public DoctorEntity Doctor { get; set; }
     }
 }
