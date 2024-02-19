@@ -14,8 +14,8 @@ namespace Ca.Cms.Domain.Entities
         public string Text { get; set; }
         public int PatientId { get; set; }
         public int BlogId { get; set; }
-        public BlogEntity? Blog { get; set; }
+        public BlogEntity Blog { get; set; }
 
-        public PatientEntity? Patient { get; set; }
+        public PatientEntity Patient { get; set; }
     }
 }

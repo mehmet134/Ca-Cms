@@ -15,8 +15,8 @@ namespace Ca.Cms.Domain.Entities
         public int? DoctorId { get; set; }
         public int? PatientId { get; set; }
         public DateTime DateTime { get; set; }
+        //enum
 
-        public DoctorCategoryEntity? Category { get; set; }
 
         public DoctorEntity? Doctor { get; set; }
 

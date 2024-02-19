@@ -28,8 +28,8 @@ public static class DependencyInjection
         services.AddScoped<IApplicationDbContext>(provider => provider.GetRequiredService<ApplicationDbContext>());
         services.AddScoped<IPatientRepository, PatientRepository>();
         services.AddScoped<IDoctorRepository, DoctorRepository>();
-      //  services.AddScoped(typeof(IRepository<,>), typeof(BaseRepository<,>));
-        services.AddScoped<IRepository<AdminEntity, int>, BaseRepository<AdminEntity ,int>>();
+        services.AddScoped(typeof(IRepository<,>), typeof(BaseRepository<,>));
+       // services.AddScoped<IRepository<AdminEntity, int>, BaseRepository<AdminEntity ,int>>();
 
 
 

@@ -16,22 +16,23 @@ namespace Ca.Cms.Domain.Entities
         public int BlogCategoryId { get; set; }
        
 
-        public BlogCategoryEntity? Category { get; set; }
-        public string? ResimDosyaAdi { get; set; }
+        public BlogCategoryEntity Category { get; set; }
 
-        public string? ResimYolu
-        {
-            get
-            {
-                if (!string.IsNullOrEmpty(ResimDosyaAdi))
-                {
-                    return "/images/" + ResimDosyaAdi; // wwwroot klasöründeki images altındaki dosyaya göre yol belirtilir.
-                }
-                return null;
-            }
-        }
+        //public string? ResimDosyaAdi { get; set; }
+
+        //public string? ResimYolu
+        //{
+        //    get
+        //    {
+        //        if (!string.IsNullOrEmpty(ResimDosyaAdi))
+        //        {
+        //            return "/images/" + ResimDosyaAdi; // wwwroot klasöründeki images altındaki dosyaya göre yol belirtilir.
+        //        }
+        //        return null;
+        //    }
+        //}
         
-        public ICollection<CommentEntity>? Comments { get; set; }
+        public ICollection<CommentEntity> Comments { get; set; }
 
 
     }

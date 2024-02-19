@@ -1,4 +1,5 @@
 ﻿using Ca.Cms.Infrastructure.Persistence.Common;
+using Ca.Cms.Infrastructure.Persistence.Seeders;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -16,8 +17,10 @@ namespace Ca.Cms.Infrastructure.Persistence
         {
             using var scope = app.ApplicationServices.CreateScope();
             var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-            //context.Database.EnsureDeleted();
+            context.Database.EnsureDeleted();
             context.Database.EnsureCreated();
+            await new DoctorSeeder().Seed(context);
+            await new AdminSeeder().Seed(context);
             await ApplyAllSeederFromAssembly(context);
         }
         private static async Task ApplyAllSeederFromAssembly(ApplicationDbContext context)

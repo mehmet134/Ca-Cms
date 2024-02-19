@@ -16,6 +16,6 @@ namespace Ca.Cms.Domain.Entities
 
         public string Description { get; set; }
 
-        public PatientEntity? Patient { get; set; }
+        public PatientEntity Patient { get; set; }
     }
 }

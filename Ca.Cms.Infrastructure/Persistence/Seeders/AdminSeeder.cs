@@ -1,4 +1,5 @@
-﻿using Ca.Cms.Domain.Entities;
+﻿using Ca.Cms.Application.Common.Interfaces;
+using Ca.Cms.Domain.Entities;
 using Ca.Cms.Infrastructure.Persistence.Common;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -11,19 +12,19 @@ namespace Ca.Cms.Infrastructure.Persistence.Seeders
 {
     public class AdminSeeder : ISeeder
     {
-        public async Task Seed(ApplicationDbContext context)
+        public async Task Seed(IApplicationDbContext context)
         {
             if (context.Admins.Any()) return;
             
                var admin1 = new AdminEntity
                {
-                   Id = 1,
                    Name = "Ali Rıza ",
                    Surname = "Canbulan",
                    Email = "aliriza@canbulan.com",
                    Phone = "05554442211",
                    Password = "1234",
-                   Cv = "fdsjfıldjsfldjflıdjsfıjldsjfdsı"
+                   Cv = "fdsjfıldjsfldjflıdjsfıjldsjfdsı",
+                   Address = "denizli"
                }
                 ;
             await context.Admins.AddAsync(admin1);

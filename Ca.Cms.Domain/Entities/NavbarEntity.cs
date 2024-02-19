@@ -11,9 +11,9 @@ namespace Ca.Cms.Domain.Entities
 {
     public class NavbarEntity : BaseEntity
     {
-        public string Name { get; set; }
+        //public string Name { get; set; }
 
-        public ICollection<DoctorEntity> Doctors { get; set; }
-        public ICollection<DepartmentEntity> Departments { get; set; }
+        //public ICollection<DoctorEntity> Doctors { get; set; }
+        //public ICollection<DepartmentBlogEntity> Departments { get; set; }
     }
 }

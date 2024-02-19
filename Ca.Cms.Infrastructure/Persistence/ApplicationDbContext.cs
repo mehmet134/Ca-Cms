@@ -13,7 +13,7 @@ namespace Ca.Cms.Infrastructure.Persistence
        public DbSet<BlogEntity> Blogs { get; set; }
        public DbSet<CommentEntity> Comments { get; set; }
        public DbSet<ContactEntity> Contacts { get; set; }
-       public DbSet<DepartmentEntity> Departments { get; set; }
+       public DbSet<DepartmentBlogEntity> DepartmentBlogs { get; set; }
        public DbSet<DoctorEntity> Doctors { get; set; }
        public DbSet<NavbarEntity> Navbars { get; set; }
        public DbSet<PatientEntity> Patients { get; set; }
@@ -29,10 +29,10 @@ namespace Ca.Cms.Infrastructure.Persistence
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
 
-        public async Task SaveChangesAsync()
-        {
-            await base.SaveChangesAsync();
-        }
+        //public async Task SaveChangesAsync()
+        //{
+        //    await base.SaveChangesAsync();
+        //}
     }
 
 }

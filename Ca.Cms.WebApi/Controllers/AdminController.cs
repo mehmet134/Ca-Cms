@@ -9,7 +9,7 @@ namespace Ca.Cms.WebApi.Controllers
     [ApiController]
     public class AdminController : ControllerBase
     {
-        private readonly IRepository<AdminEntity, int> _repository;
+        private readonly IRepository<AdminEntity> _repository;
 
         public AdminController(IRepository<AdminEntity> repository)
         {

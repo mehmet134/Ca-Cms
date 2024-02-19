@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ca.Cms.Application.Common.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace Ca.Cms.Infrastructure.Persistence.Common
 {
     public interface ISeeder
     {
-        Task Seed(ApplicationDbContext context);
+        Task Seed(IApplicationDbContext context);
     }
 }
