@@ -1,4 +1,5 @@
 ﻿using Ca.Cms.Domain.Common;
+using Ca.Cms.Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -11,15 +12,13 @@ namespace Ca.Cms.Domain.Entities
 {
     public class AppointmentEntity : BaseEntity
     {
-        public int? DoctorCategoryId { get; set; }
+        public DepartmentsEnum CategoryId { get; set; }
         public int? DoctorId { get; set; }
         public int? PatientId { get; set; }
         public DateTime DateTime { get; set; }
-        //enum
 
+        public DoctorEntity Doctor { get; set; }
 
-        public DoctorEntity? Doctor { get; set; }
-
-        public PatientEntity? Patient { get; set; }
+        public PatientEntity Patient { get; set; }
     }
 }
