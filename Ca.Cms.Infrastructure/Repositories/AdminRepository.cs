@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Ca.Cms.Infrastructure.Repositories
 {
-    public class AdminRepository : BaseRepository<AdminEntity, int>
+    public class AdminRepository : BaseRepository<AdminEntity, int> , IAdminRepository
     {
         public AdminRepository(ApplicationDbContext context) : base(context)
         {

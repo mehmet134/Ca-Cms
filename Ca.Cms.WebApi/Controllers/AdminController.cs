@@ -1,5 +1,6 @@
 ﻿using Ca.Cms.Domain.Common;
 using Ca.Cms.Domain.Entities;
+using Ca.Cms.Domain.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,9 +10,9 @@ namespace Ca.Cms.WebApi.Controllers
     [ApiController]
     public class AdminController : ControllerBase
     {
-        private readonly IRepository<AdminEntity> _repository;
+        private readonly IAdminRepository _repository;
 
-        public AdminController(IRepository<AdminEntity> repository)
+        public AdminController(IAdminRepository repository)
         {
             _repository = repository;
         }

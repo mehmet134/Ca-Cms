@@ -1,4 +1,5 @@
 ﻿using Ca.Cms.Domain.Common;
+using Ca.Cms.Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -13,10 +14,10 @@ namespace Ca.Cms.Domain.Entities
         public string Title { get; set; }
         public string Description { get; set; }
 
-        public int BlogCategoryId { get; set; }
-       
+        public BlogCategoriesEnum BlogCategoryId { get; set; }
 
-        public BlogCategoryEntity Category { get; set; }
+
+
 
         //public string? ResimDosyaAdi { get; set; }
 
@@ -31,7 +32,7 @@ namespace Ca.Cms.Domain.Entities
         //        return null;
         //    }
         //}
-        
+
         public ICollection<CommentEntity> Comments { get; set; }
 
 

@@ -1,4 +1,5 @@
-﻿using Ca.Cms.Application.Common.Interfaces;
+﻿using Bogus;
+using Ca.Cms.Application.Common.Interfaces;
 using Ca.Cms.Domain.Entities;
 using Ca.Cms.Infrastructure.Persistence.Common;
 using Microsoft.EntityFrameworkCore;
@@ -15,20 +16,21 @@ namespace Ca.Cms.Infrastructure.Persistence.Seeders
         public async Task Seed(IApplicationDbContext context)
         {
             if (context.Admins.Any()) return;
-            
-               var admin1 = new AdminEntity
-               {
-                   Name = "Ali Rıza ",
-                   Surname = "Canbulan",
-                   Email = "aliriza@canbulan.com",
-                   Phone = "05554442211",
-                   Password = "1234",
-                   Cv = "fdsjfıldjsfldjflıdjsfıjldsjfdsı",
-                   Address = "denizli"
-               }
-                ;
+
+            var admin1 = new AdminEntity
+            {
+                Name = "Ali Rıza ",
+                Surname = "Canbulan",
+                Email = "aliriza@canbulan.com",
+                Phone = "05554442211",
+                Password = "1234",
+                Cv = "fdsjfıldjsfldjflıdjsfıjldsjfdsı",
+                Address = "denizli"
+            }
+             ;
             await context.Admins.AddAsync(admin1);
             await context.SaveChangesAsync();
+
         }
     }
 }
