@@ -21,6 +21,7 @@ namespace Ca.Cms.Infrastructure.Persistence
             context.Database.EnsureCreated();
             await new DoctorSeeder().Seed(context);
             await new AdminSeeder().Seed(context);
+            await new AppointmentSeeder().Seed(context);
             await ApplyAllSeederFromAssembly(context);
         }
         private static async Task ApplyAllSeederFromAssembly(ApplicationDbContext context)
