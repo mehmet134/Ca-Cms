@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Ca.Cms.Domain.Repositories
 {
-    public interface IDoctorRepository : IRepository<DoctorEntity>
+    public interface IPatientCommentRepository : IRepository<PatientCommentEntity>
     {
     }
 }

@@ -19,6 +19,7 @@ namespace Ca.Cms.Infrastructure.Persistence
        public DbSet<PatientEntity> Patients { get; set; }
        public DbSet<PatientCommentEntity> PatientComments { get; set; }
        public DbSet<ServiceBlogEntity> ServiceBlogs { get; set; }
+        public DbSet<DoctorCommentEntity> DoctorComments { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {

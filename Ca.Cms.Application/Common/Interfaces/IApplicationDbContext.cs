@@ -22,6 +22,7 @@ namespace Ca.Cms.Application.Common.Interfaces
         DbSet<PatientEntity> Patients { get;  }
         DbSet<PatientCommentEntity> PatientComments { get;  }
         DbSet<ServiceBlogEntity> ServiceBlogs { get;  }
+        DbSet<DoctorCommentEntity> DoctorComments { get; }
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
 
