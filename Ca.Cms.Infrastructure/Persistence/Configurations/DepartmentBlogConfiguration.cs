@@ -1,0 +1,26 @@
+﻿using Ca.Cms.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Ca.Cms.Infrastructure.Persistence.Configurations
+{
+    public class DepartmentBlogConfiguration : IEntityTypeConfiguration<DepartmentBlogEntity>
+    {
+        public void Configure(EntityTypeBuilder<DepartmentBlogEntity> builder)
+        {
+            builder
+                 .Property(x => x.Name)
+                 .IsRequired()
+                 .HasMaxLength(100);
+            builder
+                .Property(x => x.Description)
+                .IsRequired()
+                .HasMaxLength(1000);
+        }
+    }
+}

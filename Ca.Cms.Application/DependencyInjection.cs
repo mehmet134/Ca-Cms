@@ -1,5 +1,4 @@
 ﻿using Ca.Cms.Application.Common.Interfaces;
-using Ca.Cms.Application.Common.Services;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -13,7 +12,7 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddApplicationServices(this IServiceCollection services)
     {
-        services.AddTransient<IPatientService, PatientService>();
+        //services.AddTransient<IPatientService, PatientService>();
 
         return services;
     }
