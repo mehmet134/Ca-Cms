@@ -16,7 +16,7 @@ namespace Ca.Cms.Domain.Entities
 
         public string Email { get; set; }
 
-        public int Phone { get; set; }
+        public long Phone { get; set; }
 
         public string Text { get; set; }
     }
