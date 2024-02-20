@@ -26,6 +26,14 @@ namespace Ca.Cms.Infrastructure.Persistence.Configurations
             builder
                 .Property(x => x.Email)
                 .IsRequired();
+            builder
+                .Property(x => x.Phone)
+                .IsRequired();
+            builder
+                .Property(x => x.Password)
+                .IsRequired()
+                .HasMaxLength (50);
+               
 
         }
     }

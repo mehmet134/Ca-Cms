@@ -8,9 +8,9 @@ namespace Ca.Cms.WebApi.Controllers
     [ApiController]
     public class BlogController : ControllerBase
     {
-        private readonly IAdminRepository _repository;
+        private readonly IBlogRepository _repository;
 
-        public BlogController(IAdminRepository repository)
+        public BlogController(IBlogRepository repository)
         {
             _repository = repository;
         }

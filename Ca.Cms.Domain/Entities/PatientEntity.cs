@@ -19,7 +19,7 @@ namespace Ca.Cms.Domain.Entities
 
         public string Password { get; set; } 
 
-        public int Phone { get; set; }
+        public long Phone { get; set; }
 
         public ICollection<AppointmentEntity> Appointments { get; set; }
 

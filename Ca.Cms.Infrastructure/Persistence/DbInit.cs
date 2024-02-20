@@ -17,7 +17,7 @@ namespace Ca.Cms.Infrastructure.Persistence
         {
             using var scope = app.ApplicationServices.CreateScope();
             var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-            context.Database.EnsureDeleted();
+            //context.Database.EnsureDeleted();
             context.Database.EnsureCreated();
             await new DoctorSeeder().Seed(context);
             await new AdminSeeder().Seed(context);
@@ -26,6 +26,10 @@ namespace Ca.Cms.Infrastructure.Persistence
             await new BlogSeeder().Seed(context);
             await new BlogCategorySeeder().Seed(context);
             await new CommentSeeder().Seed(context);
+            await new ContactSeeder().Seed(context);
+            await new DepartmentBlogSeeder().Seed(context);
+            await new ServiceBlogSeeder().Seed(context);
+            await new DoctorCommentSeeder().Seed(context);
             await ApplyAllSeederFromAssembly(context);
         }
         private static async Task ApplyAllSeederFromAssembly(ApplicationDbContext context)
