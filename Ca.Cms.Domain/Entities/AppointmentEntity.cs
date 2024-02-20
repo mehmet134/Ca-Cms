@@ -13,8 +13,8 @@ namespace Ca.Cms.Domain.Entities
     public class AppointmentEntity : BaseEntity
     {
         public DepartmentsEnum CategoryId { get; set; }
-        public int? DoctorId { get; set; }
-        public int? PatientId { get; set; }
+        public int DoctorId { get; set; }
+        public int PatientId { get; set; }
         public DateTime DateTime { get; set; }
 
         public DoctorEntity Doctor { get; set; }
