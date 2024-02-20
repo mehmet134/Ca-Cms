@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace Ca.Cms.Infrastructure.Repositories
 {
-    public class PatientRepository : BaseRepository<PatientEntity, int>, IPatientRepository
+    public class ContactRepository : BaseRepository<ContactEntity, int>, IContactRepository
     {
-        public PatientRepository(ApplicationDbContext context) : base(context)
+        public ContactRepository(ApplicationDbContext context) : base(context)
         {
         }
     }

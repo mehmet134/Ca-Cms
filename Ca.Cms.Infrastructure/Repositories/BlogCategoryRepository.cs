@@ -1,7 +1,7 @@
 ﻿using Ca.Cms.Domain.Entities;
 using Ca.Cms.Domain.Repositories;
-using Ca.Cms.Infrastructure.Persistence;
 using Ca.Cms.Infrastructure.Persistence.Common;
+using Ca.Cms.Infrastructure.Persistence;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace Ca.Cms.Infrastructure.Repositories
 {
-    public class PatientRepository : BaseRepository<PatientEntity, int>, IPatientRepository
+    public class BlogCategoryRepository : BaseRepository<BlogCategoryEntity, int>, IBlogCategoryRepository
     {
-        public PatientRepository(ApplicationDbContext context) : base(context)
+        public BlogCategoryRepository(ApplicationDbContext context) : base(context)
         {
         }
     }
