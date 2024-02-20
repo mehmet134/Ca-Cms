@@ -22,6 +22,10 @@ namespace Ca.Cms.Infrastructure.Persistence
             await new DoctorSeeder().Seed(context);
             await new AdminSeeder().Seed(context);
             await new AppointmentSeeder().Seed(context);
+            await new PatientSeeder().Seed(context);
+            await new BlogSeeder().Seed(context);
+            await new BlogCategorySeeder().Seed(context);
+            await new CommentSeeder().Seed(context);
             await ApplyAllSeederFromAssembly(context);
         }
         private static async Task ApplyAllSeederFromAssembly(ApplicationDbContext context)
