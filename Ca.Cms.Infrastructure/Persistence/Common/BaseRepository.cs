@@ -22,7 +22,7 @@ namespace Ca.Cms.Infrastructure.Persistence.Common
             _table = _context.Set<TEntity>();
         }
 
-        public async Task<List<TEntity>> GetAll(int page = 1)
+        public async Task<List<TEntity>> GetAll()
         {
             return await _table.ToListAsync();
         }
@@ -30,11 +30,10 @@ namespace Ca.Cms.Infrastructure.Persistence.Common
         {
             return await _table.FindAsync(id);
         }
-        public async Task Create(TEntity entity)
+        public async Task<int> Create(TEntity entity)
         {
             _table.Add(entity);
-            await _context.SaveChangesAsync();
-            return;
+            return await _context.SaveChangesAsync();
         }
         public async Task Update(TEntity entity)
         {

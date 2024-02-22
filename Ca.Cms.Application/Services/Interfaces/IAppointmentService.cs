@@ -13,9 +13,9 @@ namespace Ca.Cms.Application.Services.Interfaces
 
         Task<AppointmentDto?> GetById(int id);
 
-        Task<CreateOrEditAppointmentDto?> GetFormById(int id);
+        //Task<CreateOrEditAppointmentDto?> GetFormById(int id);
 
-        Task Create(CreateOrEditAppointmentDto customer);
+        Task<int> Create(CreateOrEditAppointmentDto customer);
 
         Task<bool> Update(CreateOrEditAppointmentDto customer);
 

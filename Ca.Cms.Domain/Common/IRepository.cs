@@ -11,7 +11,7 @@ namespace Ca.Cms.Domain.Common
     {
         Task<List<TEntity>> GetAll();
         Task<TEntity> GetById(Tkey id);
-        Task Create(TEntity entity);
+        Task<int> Create(TEntity entity);
         Task Update(TEntity entity);
         Task Delete(TEntity entity);
     }

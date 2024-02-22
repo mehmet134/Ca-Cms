@@ -1,4 +1,7 @@
 ﻿using Ca.Cms.Application.Common.Interfaces;
+using Ca.Cms.Application.Dtos;
+using Ca.Cms.Application.Services;
+using Ca.Cms.Application.Services.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -15,10 +18,12 @@ public static class DependencyInjection
     public static IServiceCollection AddApplicationServices(this IServiceCollection services)
     {
         //services.AddTransient<IPatientService, PatientService>();
-        //var assembly = Assembly.GetExecutingAssembly();
+        services.AddTransient<IAppointmentService, AppointmentService>();
+        services.AddTransient<IContactService, ContactService>();
 
-        //services.AddAutoMapper(assembly);
-        services.AddAutoMapper(typeof(Mapping));
+        var assembly = Assembly.GetExecutingAssembly();
+        services.AddAutoMapper(assembly);
+        //services.AddAutoMapper(typeof(Mapping));
 
         return services;
     }

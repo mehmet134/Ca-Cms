@@ -9,32 +9,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Ca.Cms.Application.Services
 {
-    public class AppointmentService :IAppointmentService
+    public class ContactService : IContactService
     {
+        private readonly IContactRepository _repository;
         private readonly IApplicationDbContext _db;
-        private readonly IAppointmentRepository _appointmentRepository;
         private readonly IMapper _mapper;
 
-        public AppointmentService(IApplicationDbContext db, IAppointmentRepository appointmentRepository, IMapper mapper)
+        public ContactService(IContactRepository repository, IApplicationDbContext db, IMapper mapper)
         {
+            _repository = repository;
             _db = db;
-            _appointmentRepository = appointmentRepository;
             _mapper = mapper;
         }
-        public async Task<List<AppointmentDto>> GetAll()
+
+        public async Task<List<ContactDto>> GetAll()
         {
-            var entity = await _appointmentRepository.GetAll();
-            return _mapper.Map<List<AppointmentDto>>(entity).ToList();
+            var entity = await _repository.GetAll();
+            return _mapper.Map<List<ContactDto>>(entity).ToList();
 
         }
-        public async Task<int> Create(CreateOrEditAppointmentDto dto)
+        public async Task<int> Create(CreateOrEditContactDto dto)
         {
-            var entity = _mapper.Map<AppointmentEntity>(dto);
-            await _appointmentRepository.Create(entity);
+            var entity = _mapper.Map<ContactEntity>(dto);
+            await _repository.Create(entity);
             return await _db.SaveChangesAsync();
         }
 
@@ -46,19 +46,17 @@ namespace Ca.Cms.Application.Services
             //return isSucces;
         }
 
-       
-      
-        public async Task<AppointmentDto?> GetById(int id)
-        {
-            var entity = await _appointmentRepository.GetById(id);
-            return _mapper.Map<AppointmentDto>(entity);
 
-            
+
+        public async Task<ContactDto?> GetById(int id)
+        {
+            var entity = await _repository.GetById(id);
+            return _mapper.Map<ContactDto>(entity);
+
+
         }
 
-        
-
-        public async Task<bool> Update(CreateOrEditAppointmentDto customer)
+        public async Task<bool> Update(CreateOrEditContactDto customer)
         {
             //var entity = _mapper.Map<CreateOrEditAppointmentDto>(customer);
             //await _appointmentRepository.Update(entity);

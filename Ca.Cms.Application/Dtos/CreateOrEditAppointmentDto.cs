@@ -11,17 +11,17 @@ namespace Ca.Cms.Application.Dtos
 {
     public class CreateOrEditAppointmentDto
     {
-        public int? Id { get; set; }
         public DepartmentsEnum? CategoryId { get; set; }
         public int? DoctorId { get; set; }
         public int? PatientId { get; set; }
         public DateTime? DateTime { get; set; }
-        public class Mapping : Profile
+        
+    }
+    public class Mapping : Profile
+    {
+        public Mapping()
         {
-            public Mapping()
-            {
-                CreateMap<AppointmentEntity, CreateOrEditAppointmentDto>().ReverseMap();
-            }
+            CreateMap<AppointmentEntity, CreateOrEditAppointmentDto>().ReverseMap();
         }
     }
 }

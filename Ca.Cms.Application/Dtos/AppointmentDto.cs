@@ -12,7 +12,6 @@ namespace Ca.Cms.Application.Dtos
 {
     public class AppointmentDto
     {
-        public int Id { get; set; }
         public DepartmentsEnum CategoryId { get; set; }
         public int DoctorId { get; set; }
         public int PatientId { get; set; }
