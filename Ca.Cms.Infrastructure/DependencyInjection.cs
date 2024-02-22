@@ -23,12 +23,14 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddInfrastructureServices(this IServiceCollection services,IConfiguration configuration)
     {
-        services.AddScoped<ISaveChangesInterceptor, AuditableEntityInterceptor>();
+       services.AddScoped<ISaveChangesInterceptor, AuditableEntityInterceptor>();
         services.AddDbContext<ApplicationDbContext>((sp, options) =>
         {
             options.AddInterceptors(sp.GetServices<ISaveChangesInterceptor>());
             options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
         });
+        services.AddSingleton(TimeProvider.System);
+
         services.AddScoped<IApplicationDbContext>(provider => provider.GetRequiredService<ApplicationDbContext>());
         services.AddScoped<IDoctorRepository, DoctorRepository>();
         services.AddScoped<IAdminRepository, AdminRepository>();
