@@ -9,7 +9,7 @@ namespace Ca.Cms.Domain.Common
 {
     public interface IRepository <TEntity, Tkey>
     {
-        Task<List<TEntity>> GetAll(int page = 1);
+        Task<List<TEntity>> GetAll();
         Task<TEntity> GetById(Tkey id);
         Task Create(TEntity entity);
         Task Update(TEntity entity);
