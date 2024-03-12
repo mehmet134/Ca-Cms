@@ -1,5 +1,5 @@
 ﻿using Ca.Cms.Application.Common.Interfaces;
-using Ca.Cms.WebApi.Infrastructure;
+using Ca.Cms.Infrastructure.Authentication;
 using System.Collections.Generic;
 
 namespace Microsoft.Extensions.DependencyInjection;
@@ -13,7 +13,7 @@ public static class DependencyInjection
         services.AddSwaggerGen();
 
 
-        services.AddScoped<IUser, CurrentUser>();
+        services.AddScoped<IUser,CurrentUser>();
         services.AddHttpContextAccessor();
         return services;
     }

@@ -13,7 +13,7 @@ namespace Ca.Cms.Domain.Common
         Task<TEntity> GetById(Tkey id);
         Task<int> Create(TEntity entity);
         Task Update(TEntity entity);
-        Task Delete(TEntity entity);
+        Task<bool> Delete(TEntity entity);
     }
     public interface IRepository<TEntity> : IRepository<TEntity, int> { } 
 }

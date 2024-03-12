@@ -38,16 +38,17 @@ namespace Ca.Cms.Application.Services
             return await _db.SaveChangesAsync();
         }
 
-        public async Task<bool> Delete(int id)
+        public async Task<bool> Delete(AppointmentDto entity)
         {
             throw new NotImplementedException();
-            //bool isSucces = await _appointmentRepository.Deleteb(id);
+
+            //bool isSucces = await _appointmentRepository.Delete(entity);
             //await _db.SaveChangesAsync();
             //return isSucces;
         }
 
-       
-      
+
+
         public async Task<AppointmentDto?> GetById(int id)
         {
             var entity = await _appointmentRepository.GetById(id);

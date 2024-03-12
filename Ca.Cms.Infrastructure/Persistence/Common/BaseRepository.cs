@@ -41,11 +41,11 @@ namespace Ca.Cms.Infrastructure.Persistence.Common
             await _context.SaveChangesAsync();
             return;
         }
-        public async Task Delete(TEntity entity)
+        public async Task<bool> Delete(TEntity entity)
         {
             _table.Remove(entity);
-            await _context.SaveChangesAsync();
-            return;
+            int affected = await _context.SaveChangesAsync();
+            return affected > 0;
         }
     }
 }

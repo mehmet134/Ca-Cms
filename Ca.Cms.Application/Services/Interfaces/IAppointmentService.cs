@@ -19,6 +19,6 @@ namespace Ca.Cms.Application.Services.Interfaces
 
         Task<bool> Update(CreateOrEditAppointmentDto customer);
 
-        Task<bool> Delete(int id);
+        Task<bool> Delete(AppointmentDto id);
     }
 }
