@@ -1,5 +1,4 @@
 ﻿using Ca.Cms.Application.Dtos;
-using Ca.Cms.Application.Services.Interfaces;
 using Ca.Cms.Domain.Entities;
 using Ca.Cms.Domain.Repositories;
 using Microsoft.AspNetCore.Mvc;
@@ -10,33 +9,33 @@ namespace Ca.Cms.WebApi.Controllers
     [ApiController]
     public class AppointmentController : ControllerBase
     {
-        private readonly IAppointmentService _service;
+        //private readonly IAppointmentService _service;
 
-        public AppointmentController(IAppointmentService service)
-        {
-            _service = service;
-        }
+        //public AppointmentController(IAppointmentService service)
+        //{
+        //    _service = service;
+        //}
 
-        [HttpGet]
-        public async Task<IActionResult> Get()
-        {
-            var admins = await _service.GetAll();
-            return Ok(admins);
+        //[HttpGet]
+        //public async Task<IActionResult> Get()
+        //{
+        //    var admins = await _service.GetAll();
+        //    return Ok(admins);
 
-        }
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GeyByIdAdmin(int id)
-        {
-            var admin = await _service.GetById(id);
-            return Ok(admin);
-        }
-        [HttpPost]
-        public async Task<IActionResult> Post(CreateOrEditAppointmentDto appointment)
-        {
-            await _service.Create(appointment);
+        //}
+        //[HttpGet("{id}")]
+        //public async Task<IActionResult> GeyByIdAdmin(int id)
+        //{
+        //    var admin = await _service.GetById(id);
+        //    return Ok(admin);
+        //}
+        //[HttpPost]
+        //public async Task<IActionResult> Post(CreateOrEditAppointmentDto appointment)
+        //{
+        //    await _service.Create(appointment);
 
-            return Ok(appointment);
-        }
+        //    return Ok(appointment);
+        //}
 
         //[HttpPut("{id}")]
         //public async Task<IActionResult> Put(int id, CreateOrEditAppointmentDto appointment)
