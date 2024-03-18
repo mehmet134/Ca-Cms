@@ -32,6 +32,8 @@ namespace Ca.Cms.Application.Features.Doctors.Queries.GetAllDoctors
         public async Task<PaginatedResult<DoctorDto>> Handle(GetPaginatedDoctorsQuery request, CancellationToken cancellationToken)
         {
             var entities = _repository.GetAll()
+                .Include(e => e.Appointments)
+                .Include(e => e.DoctorComments)
                  .OrderByDescending(e => e.Id)
                  .ProjectTo<DoctorDto>(_mapper.ConfigurationProvider);
 
