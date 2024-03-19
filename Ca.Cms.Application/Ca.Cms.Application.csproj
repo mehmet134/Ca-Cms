@@ -17,7 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Appointments\" />
     <Folder Include="Features\Comment\" />
     <Folder Include="Features\Contact\" />
     <Folder Include="Features\DepartmentBlog\" />
