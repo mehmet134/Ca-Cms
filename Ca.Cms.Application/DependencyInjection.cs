@@ -1,5 +1,6 @@
 ﻿using Ca.Cms.Application.Common.Interfaces;
 using Ca.Cms.Application.Dtos;
+using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,8 @@ public static class DependencyInjection
         //services.AddTransient<IContactService, ContactService>();
 
         var assembly = Assembly.GetExecutingAssembly();
+        services.AddValidatorsFromAssembly(assembly);
+
         services.AddAutoMapper(assembly);
         services.AddMediatR(cfg =>
         {

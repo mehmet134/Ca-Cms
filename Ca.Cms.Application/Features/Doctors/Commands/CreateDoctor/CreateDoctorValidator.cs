@@ -14,6 +14,9 @@ namespace Ca.Cms.Application.Features.Doctors.Commands.CreateDoctor
             RuleFor(x => x.Email).NotEmpty();
             RuleFor(x => x.Password).NotEmpty().Length(8,25);
             RuleFor(x => x.Phone).NotEmpty();
+            RuleFor(x => x.Surname).Length(8, 25).WithMessage("Please specify a Title").MinimumLength(8);
+            ;
+
         }
 
     }
