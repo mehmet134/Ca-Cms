@@ -17,9 +17,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Patients\Commands\CreatePatient\" />
-    <Folder Include="Features\Patients\Commands\DeletePatient\" />
-    <Folder Include="Features\Patients\Commands\UpdatePatient\" />
+    <Folder Include="Features\Appointments\" />
+    <Folder Include="Features\Comment\" />
+    <Folder Include="Features\Contact\" />
+    <Folder Include="Features\DepartmentBlog\" />
+    <Folder Include="Features\DoctorComment\" />
+    <Folder Include="Features\ServiceBlog\" />
+    <Folder Include="Features\PatientComment\" />
   </ItemGroup>
 
 </Project>

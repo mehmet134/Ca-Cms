@@ -17,11 +17,11 @@ namespace Ca.Cms.Infrastructure.Persistence
         {
             using var scope = app.ApplicationServices.CreateScope();
             var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-            //context.Database.EnsureDeleted();
+            context.Database.EnsureDeleted();
             context.Database.EnsureCreated();
             await new DoctorSeeder().Seed(context);
             await new AdminSeeder().Seed(context);
-            await new AppointmentSeeder().Seed(context);
+            //await new AppointmentSeeder().Seed(context);
             await new PatientSeeder().Seed(context);
             await new BlogSeeder().Seed(context);
             await new BlogCategorySeeder().Seed(context);
