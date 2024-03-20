@@ -2,6 +2,7 @@
 using Ca.Cms.Application.Common.Interfaces;
 using Ca.Cms.Domain.Entities;
 using Ca.Cms.Domain.Enums;
+using Ca.Cms.Infrastructure.Authentication;
 using Ca.Cms.Infrastructure.Persistence.Common;
 using System;
 using System.Collections.Generic;
@@ -21,7 +22,7 @@ namespace Ca.Cms.Infrastructure.Persistence.Seeders
 
             var faker = new Faker<DoctorEntity>()
 
-                .RuleFor(u => u.Password, "123qwe")
+                .RuleFor(u => u.Password,AccountHelper.HashCreate( "123qwe"))
                 .RuleFor(u => u.Email, (f, u) => f.Internet.Email(u.Name, u.Surname))
                 .RuleFor(u => u.Name, (f, u) => f.Name.FirstName())
                 .RuleFor(u => u.Surname, (f, u) => f.Name.LastName())
