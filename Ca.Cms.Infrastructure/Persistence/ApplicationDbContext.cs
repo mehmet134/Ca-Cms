@@ -1,13 +1,15 @@
 ﻿using Ca.Cms.Application.Common.Interfaces;
 using Ca.Cms.Domain.Common;
 using Ca.Cms.Domain.Entities;
+using Ca.Cms.Infrastructure.Authentication;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System.Reflection;
 
 namespace Ca.Cms.Infrastructure.Persistence
 {
-    public class ApplicationDbContext : DbContext, IApplicationDbContext
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, string>, IApplicationDbContext
     {
         public DbSet<AdminEntity> Admins { get; set; }
         public DbSet<AppointmentEntity> Appointments { get; set; }

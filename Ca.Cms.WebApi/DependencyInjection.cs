@@ -18,22 +18,23 @@ public static class DependencyInjection
 
         services.AddScoped<IUser,CurrentUser>();
         services.AddHttpContextAccessor();
-        services
-            .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-            .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options =>
-            {
-                var signingKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Authentication:Jwt:SigningKey"]));
-                options.TokenValidationParameters = new TokenValidationParameters
-                {
-                    //ValidateIssuer = true,
-                    //ValidateAudience = true,
-                    //ValidateLifetime = true,
-                    ValidateIssuerSigningKey = true,
-                    ValidIssuer = configuration["Authentication:Jwt:Issuer"],
-                    ValidAudience = configuration["Authentication:Jwt:Audience"],
-                    IssuerSigningKey = signingKey,
-                };
-            });
+        services.AddScoped<JwtAccountService>();
+        //services
+        //    .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+        //    .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options =>
+        //    {
+        //        var signingKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Authentication:Jwt:SigningKey"]));
+        //        options.TokenValidationParameters = new TokenValidationParameters
+        //        {
+        //            //ValidateIssuer = true,
+        //            //ValidateAudience = true,
+        //            //ValidateLifetime = true,
+        //            ValidateIssuerSigningKey = true,
+        //            ValidIssuer = configuration["Authentication:Jwt:Issuer"],
+        //            ValidAudience = configuration["Authentication:Jwt:Audience"],
+        //            IssuerSigningKey = signingKey,
+        //        };
+        //    });
         return services;
     }
 }
