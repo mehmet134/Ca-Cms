@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ca.Cms.Infrastructure", "Ca
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ca.Cms.WebApi", "Ca.Cms.WebApi\Ca.Cms.WebApi.csproj", "{F6474CD2-4BFF-40D6-8667-EE77331763FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ca.Cms.Web", "src\Ca.Cms.Web\Ca.Cms.Web.csproj", "{B1920BC2-ECB8-45BC-B76F-48232DAC9CC2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ca.Cms.Web", "src\Ca.Cms.Web\Ca.Cms.Web.csproj", "{B1920BC2-ECB8-45BC-B76F-48232DAC9CC2}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "Ca-cms-vue", "Ca-Cms-Vue\Ca-cms-vue.esproj", "{CBFB2CE2-F082-4486-8033-21E1B8970E99}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,12 @@ Global
 		{B1920BC2-ECB8-45BC-B76F-48232DAC9CC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1920BC2-ECB8-45BC-B76F-48232DAC9CC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1920BC2-ECB8-45BC-B76F-48232DAC9CC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBFB2CE2-F082-4486-8033-21E1B8970E99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBFB2CE2-F082-4486-8033-21E1B8970E99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBFB2CE2-F082-4486-8033-21E1B8970E99}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{CBFB2CE2-F082-4486-8033-21E1B8970E99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBFB2CE2-F082-4486-8033-21E1B8970E99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBFB2CE2-F082-4486-8033-21E1B8970E99}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
