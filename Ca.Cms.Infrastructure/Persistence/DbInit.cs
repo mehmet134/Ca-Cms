@@ -1,6 +1,8 @@
-﻿using Ca.Cms.Infrastructure.Persistence.Common;
+﻿using Ca.Cms.Infrastructure.Authentication;
+using Ca.Cms.Infrastructure.Persistence.Common;
 using Ca.Cms.Infrastructure.Persistence.Seeders;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -17,11 +19,15 @@ namespace Ca.Cms.Infrastructure.Persistence
         {
             using var scope = app.ApplicationServices.CreateScope();
             var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-            //context.Database.EnsureDeleted();
+            //var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+            //var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+            context.Database.EnsureDeleted();
             context.Database.EnsureCreated();
             await new DoctorSeeder().Seed(context);
+            //var adminSeeder = new AdminSeeder(userManager, roleManager);
+            //await adminSeeder.Seed(context);
             await new AdminSeeder().Seed(context);
-            await new AppointmentSeeder().Seed(context);
+            //await new AppointmentSeeder().Seed(context);
             await new PatientSeeder().Seed(context);
             await new BlogSeeder().Seed(context);
             await new BlogCategorySeeder().Seed(context);

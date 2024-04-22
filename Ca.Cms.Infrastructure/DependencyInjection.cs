@@ -2,6 +2,7 @@
 using Ca.Cms.Domain.Common;
 using Ca.Cms.Domain.Entities;
 using Ca.Cms.Domain.Repositories;
+using Ca.Cms.Infrastructure.Authentication;
 using Ca.Cms.Infrastructure.Persistence;
 using Ca.Cms.Infrastructure.Persistence.Common;
 using Ca.Cms.Infrastructure.Persistence.Interceptors;
@@ -30,6 +31,16 @@ public static class DependencyInjection
             options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
         });
         services.AddSingleton(TimeProvider.System);
+        services
+            .AddDefaultIdentity<ApplicationUser>(options =>
+            {
+                options.SignIn.RequireConfirmedAccount = false;
+                options.SignIn.RequireConfirmedEmail = true;
+                options.User.RequireUniqueEmail = false;
+                options.Password.RequiredLength = 10;
+            })
+            .AddRoles<ApplicationRole>()
+            .AddEntityFrameworkStores<ApplicationDbContext>();
 
         services.AddScoped<IApplicationDbContext>(provider => provider.GetRequiredService<ApplicationDbContext>());
         services.AddScoped<IDoctorRepository, DoctorRepository>();

@@ -10,7 +10,7 @@ using Ca.Cms.Domain.Enums;
 
 namespace Ca.Cms.Domain.Entities
 {
-    public class DoctorEntity : BaseEntity
+    public class DoctorEntity : BaseAuditableEntity
     {
         public DepartmentsEnum CategoryId { get; set; }
 

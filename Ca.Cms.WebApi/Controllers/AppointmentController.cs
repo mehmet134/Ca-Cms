@@ -1,7 +1,15 @@
-﻿using Ca.Cms.Application.Dtos;
-using Ca.Cms.Application.Services.Interfaces;
-using Ca.Cms.Domain.Entities;
-using Ca.Cms.Domain.Repositories;
+﻿using Ca.Cms.Application.Features.Appointments.Commands.CreateAppointment;
+using Ca.Cms.Application.Features.Appointments.Commands.DeleteAppointment;
+using Ca.Cms.Application.Features.Appointments.Commands.UpdateAppointment;
+using Ca.Cms.Application.Features.Appointments.Queries.GetAllAppointments;
+using Ca.Cms.Application.Features.Appointments.Queries.GetAppointmentById;
+using Ca.Cms.Application.Features.Doctors.Commands.CreateDoctor;
+using Ca.Cms.Application.Features.Doctors.Commands.DeleteDoctor;
+using Ca.Cms.Application.Features.Doctors.Commands.UpdateDoctor;
+using Ca.Cms.Application.Features.Doctors.Queries.GetAllDoctors;
+using Ca.Cms.Application.Features.Doctors.Queries.GetDoctorById;
+using MediatR;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Ca.Cms.WebApi.Controllers
@@ -10,50 +18,48 @@ namespace Ca.Cms.WebApi.Controllers
     [ApiController]
     public class AppointmentController : ControllerBase
     {
-        private readonly IAppointmentService _service;
+        private readonly IMediator _mediator;
 
-        public AppointmentController(IAppointmentService service)
+        public AppointmentController(IMediator mediator)
         {
-            _service = service;
+            _mediator = mediator;
         }
-
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var admins = await _service.GetAll();
-            return Ok(admins);
-
+            var response = await _mediator.Send(new GetAllAppointmentsQuery());
+            return Ok(response);
         }
+
         [HttpGet("{id}")]
-        public async Task<IActionResult> GeyByIdAdmin(int id)
+        public async Task<IActionResult> Get(int id)
         {
-            var admin = await _service.GetById(id);
-            return Ok(admin);
+            var response = await _mediator.Send(new GetAppointmentByIdQuery(id));
+            return Ok(response);
         }
         [HttpPost]
-        public async Task<IActionResult> Post(CreateOrEditAppointmentDto appointment)
+        public async Task<IActionResult> Post(CreateAppointmentCommand command)
         {
-            await _service.Create(appointment);
-
-            return Ok(appointment);
+            var response = await _mediator.Send(command);
+            return Ok(response);
         }
 
-        //[HttpPut("{id}")]
-        //public async Task<IActionResult> Put(int id, CreateOrEditAppointmentDto appointment)
-        //{
-        //    if (id == appointment.Id)
-        //    {
-        //        await _repository.Update(appointment);
-        //    }
-        //    return Ok(appointment.Id);
-        //}
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Put(int id, UpdateAppointmentCommand command)
+        {
+            if (id == command.Id)
+            {
+                var response = await _mediator.Send(command);
+                return Ok(response);
+            }
+            return Ok(false);
+        }
 
-        //[HttpDelete("{id}")]
-        //public async Task<IActionResult> Delete(int id)
-        //{
-        //    await _departmentService.Delete(id);
-
-        //    return Ok();
-        //}
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var response = await _mediator.Send(new DeleteAppointmentCommand(id));
+            return Ok(response);
+        }
     }
 }

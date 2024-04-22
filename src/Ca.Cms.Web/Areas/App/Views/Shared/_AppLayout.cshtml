@@ -1,0 +1,111 @@
+﻿@{
+    var girisyapti = User.Identity.IsAuthenticated;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="shortcut icon" type="image/x-icon" href="~/assets/img/favicon.ico">
+    <title>Preclinic - Medical & Hospital - Bootstrap 4 Admin Template</title>
+    <link rel="stylesheet" href="~/assets/css/bootstrap.min.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/assets/css/font-awesome.min.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/assets/css/select2.min.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/assets/css/tagsinput.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/assets/css/style.css" asp-append-version="true">
+</head>
+
+<body>
+
+
+    <div class="main-wrapper">
+        <div class="header">
+            <div class="header-left">
+                <a class="logo">
+                    <img src="~/assets/img/logo.png" width="35" height="35" alt=""> <span>Preclinic</span>
+                </a>
+            </div>
+
+            <a id="toggle_btn" href="javascript:void(0);"><i class="fa fa-bars"></i></a>
+            <a id="mobile_btn" class="mobile_btn float-left" href="#sidebar"><i class="fa fa-bars"></i></a>
+            <ul class="nav user-menu float-right">
+
+                <li>
+                    <a>
+
+                        <span>
+                            <a asp-area="" asp-controller="Auth" asp-action="Logout">Logout</a>
+                        </span>
+                    </a>
+
+                </li>
+            </ul>
+
+        </div>
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-inner slimscroll">
+                <div id="sidebar-menu" class="sidebar-menu">
+                    <ul>
+
+                        <li class="active">
+                            <a asp-action="Index" asp-controller="Home"><i class="fa fa-user"></i> <span>Main</span></a>
+                        </li>
+                        <li>
+                            <a asp-action="GetDoctors" asp-controller="Doctors"><i class="fa fa-user-md"></i> <span>Doctors</span></a>
+                        </li>
+                        <li>
+                            <a asp-action="GetPatients" asp-controller="Patients">
+                                <i class="fa fa-wheelchair"></i> <span>Patients</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-action="GetAppointments" asp-controller="Appointments"><i class="fa fa-calendar-check-o"></i> <span>Appointments</span></a>
+                        </li>
+
+                        <li>
+                            <a asp-action="GetDepartments" asp-controller="Departments"><i class="fa fa-hospital-o"></i> <span>Departments</span></a>
+                        </li>
+
+                        <li>
+                            <a asp-action="GetContacts" asp-controller="Contact"><i class="fa fa-envelope"></i> <span>Contact</span></a>
+                        </li>
+                        <li>
+                            <a asp-action="GetBlogs" asp-controller="Blogs"><i class="fa fa-commenting-o"></i> <span>Blogs</span></a>
+                        </li>
+                        <li>
+                            <a asp-action="GetServiceBlogs" asp-controller="ServiceBlogs"><i class="fa fa-commenting-o"></i> <span>Service Blogs</span></a>
+                        </li>
+                        <li>
+                            <a asp-action="GetDoctorComment" asp-controller="DoctorComment"><i class="fa fa-commenting-o"></i> <span>Doctor Comments</span></a>
+                        </li>
+                        <li>
+                            <a asp-action="GetPatientComment" asp-controller="PatientComment"><i class="fa fa-commenting-o"></i> <span>Patient Comments</span></a>
+                        </li>
+
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <main role="main" class="pb-3">
+
+            @RenderBody()
+        </main>
+    </div>
+
+
+    <script src="~/assets/js/jquery-3.2.1.min.js" asp-append-version="true"></script>
+    <script src="~/assets/js/popper.min.js" asp-append-version="true"></script>
+    <script src="~/assets/js/bootstrap.min.js" asp-append-version="true"></script>
+    <script src="~/assets/js/jquery.slimscroll.js" asp-append-version="true"></script>
+    <script src="~/assets/js/Chart.bundle.js" asp-append-version="true"></script>
+    <script src="~/assets/js/chart.js" asp-append-version="true"></script>
+    <script src="~/assets/js/app.js" asp-append-version="true"></script>
+
+</body>
+</html>
