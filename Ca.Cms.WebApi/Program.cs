@@ -9,6 +9,7 @@ builder.Services
     .AddWebApiServices(builder.Configuration);
 var app = builder.Build();
 
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -17,6 +18,7 @@ if (app.Environment.IsDevelopment())
 
     await app.InitializeDb();
 }
+app.UseCors();
 
 app.UseHttpsRedirection();
 ////app.UseAuthentication();
